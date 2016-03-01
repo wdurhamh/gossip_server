@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  if (!user)
+    a(href='/login') Login
+    br
+    a(href='register') Register
+  if (user)
+    h1 Keep the car running
+    p.lead Now you're ready to start
+    a(href='/logout') Logout

@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  script(src='/js/poll.js')
+  .container
+    h1 Deep Blue Chat Room
+    p.lead Kasporov was here... Now it's you,  #{user.username}
+    br
+    form(role='form', action='/gossip', method='post', style='max-width:500px;')
+      div.input
+        span.label Chat it up!
+         
+      textarea(name='chat_message', cols='50', rows='5')
+      button.btn.btn-primary(type='submit') Send
+    br
+    h2 Messages
+    ul(style='overflow:hidden;overflow-y:scroll; max-height:500px;') 
+      each message in user.messages
+        li
+          p  #{message.Rumor.Originator}
+          p  #{message.Rumor.Text}
